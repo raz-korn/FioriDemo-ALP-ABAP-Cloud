@@ -47,7 +47,6 @@
                         <PropertyValue Property="Dimensions">
                             <Collection>
                                 <PropertyPath>CarrierID</PropertyPath>
-                                <PropertyPath>REPLACE_WITH_DIMENSIONS_PROPERTY</PropertyPath>
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="Measures">
@@ -74,6 +73,53 @@
                             <Collection>
                                 <AnnotationPath>@UI.LineItem</AnnotationPath>
                                 <AnnotationPath>@UI.Chart</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>BookingDateYear</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.Chart" Qualifier="FlightPriceBookingDateYear">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="FlightPrice By BookingDateYear"/>
+                        <PropertyValue Property="Description" String="FlightPrice By BookingDateYear"/>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Line"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>BookingDateYear</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>FlightPrice</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.PresentationVariant" Qualifier="PVFlightPriceBookingDateYear">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.Chart#FlightPriceBookingDateYear</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_000001.BookingType/BookingDateYear">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="Booking"/>
+                        <PropertyValue Property="PresentationVariantQualifier" String="PVFlightPriceBookingDateYear"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BookingDateYear"/>
+                                    <PropertyValue Property="ValueListProperty" String="BookingDateYear"/>
+                                </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
